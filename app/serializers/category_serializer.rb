@@ -10,5 +10,5 @@
 #
 
 class CategorySerializer < ApplicationSerializer
-  attributes :name
+  attributes :name, :products_count
 end
