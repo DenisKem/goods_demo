@@ -124,5 +124,25 @@ RSpec.describe V1::ProductsController, type: :controller do
         expect(JSON.parse(response.body)['errors']['price']).to include("must be greater than 0")
       end
     end   
+  end 
+  
+  describe "#destroy" do
+    let!(:product) { create(:product) }
+    let(:category) { product.category }
+
+    subject { delete :destroy, params: {id: product.id} }
+
+    it "returns 200 status" do
+      subject
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "deletes product" do
+      expect { subject }.to change { Product.count }.from(1).to(0)
+    end
+    
+    it "updates category products_count" do
+      expect { subject; category.reload }.to change { category.products_count }.from(1).to(0)
+    end    
   end  
 end

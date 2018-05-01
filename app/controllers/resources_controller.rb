@@ -3,6 +3,7 @@ class ResourcesController < ApplicationController
     resources = resource_model.ransack(params[:q]).result
     render json: resources
   end
+
   def create
     resource = resource_model.new(resource_params_for_create)
     
@@ -11,6 +12,13 @@ class ResourcesController < ApplicationController
     else
       render json: {errors: resource.errors}, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    resource = resource_model.find(params[:id])
+
+    resource.destroy
+    render json: {}
   end
 
   private
