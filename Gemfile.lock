@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 581bcd8a788fae3147fab873311fa9c60ae3c41c
+  specs:
+    ransack (1.8.8)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3.2)
+
+GIT
   remote: https://github.com/ctran/annotate_models.git
   revision: 89bce57f2888babd9a620ae7772b5df02ee97516
   specs:
@@ -99,6 +110,8 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     pg (1.0.0)
+    polyamorous (1.3.3)
+      activerecord (>= 3.0)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.0.0)
@@ -183,6 +196,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.0)
+  ransack!
   rspec-rails (~> 3.7)
   spring
   spring-watcher-listen (~> 2.0.0)

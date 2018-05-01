@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'active_model_serializers', '~> 0.10'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails', '~> 5.2.0'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 

@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   def index
-    resources = resource_model.all
+    resources = resource_model.ransack(params[:q]).result
     render json: resources
   end
   def create
