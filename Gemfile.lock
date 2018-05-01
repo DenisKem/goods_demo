@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/ctran/annotate_models.git
+  revision: 89bce57f2888babd9a620ae7772b5df02ee97516
+  specs:
+    annotate (2.7.3)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,6 +32,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.6)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
     activejob (5.2.0)
       activesupport (= 5.2.0)
       globalid (>= 0.3.6)
@@ -47,14 +60,24 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
+    case_transform (0.2)
+      activesupport
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    database_cleaner (1.6.1)
+    diff-lcs (1.3)
     erubi (1.7.1)
+    factory_girl (4.8.1)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    jsonapi-renderer (0.1.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -108,6 +131,23 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-rails (3.7.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
     ruby_dep (1.5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -133,12 +173,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10)
+  annotate!
   bootsnap (>= 1.1.0)
   byebug
+  database_cleaner (~> 1.6)
+  factory_girl_rails (~> 4.8)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.0)
+  rspec-rails (~> 3.7)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
