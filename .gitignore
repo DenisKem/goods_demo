@@ -22,4 +22,5 @@
 /config/master.key
 
 # Visual studio code files
-/.code 
+/.code
+/.idea
