@@ -3,10 +3,35 @@ class ResourcesController < ApplicationController
     resources = resource_model.all
     render json: resources
   end
+  def create
+    resource = resource_model.new(resource_params_for_create)
+    
+    if resource.save
+      render json: resource, status: :created      
+    else
+      render json: {errors: resource.errors}, status: :unprocessable_entity
+    end
+  end
 
   private
-
+  
   def resource_model
-    controller_name.delete_suffix('Controller').singularize.capitalize.constantize
+    underscored_model_name.capitalize.constantize
+  end
+
+  def resource_params_for_create
+    params.require(underscored_model_name).permit(permitted_attributes_for_create)
+  end
+
+  def permitted_attributes
+    []
+  end
+
+  def permitted_attributes_for_create
+    permitted_attributes
+  end
+
+  def underscored_model_name
+    controller_name.delete_suffix('Controller').singularize 
   end
 end
